@@ -1,0 +1,10 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://78.47.206.127:8080
+functions:
+  csharptestfunction:
+    lang: csharp-httprequest
+    handler: ./csharptestfunction
+    image: csharptestfunction:latest
+
