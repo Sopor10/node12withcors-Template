@@ -48,7 +48,7 @@ jobs:
           context: ./build/csharptestfunction/
           file: ./build/csharptestfunction/Dockerfile
           push: true
-          tags: utsavanand2/hello:latest-${{ steps.define_env.outputs.github-sha-short }}
+          tags: sopor10/csharptestfunction:latest-${{ steps.define_env.outputs.github-sha-short }}
       - 
         name: Deploy the function
         uses: docker://openfaas/faas-cli:latest-root
