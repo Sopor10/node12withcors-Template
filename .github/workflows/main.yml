@@ -49,7 +49,7 @@ jobs:
           context: ./build/csharptestfunction/
           file: ./build/csharptestfunction/Dockerfile
           push: true
-          tags: sopor10/mycontainers/csharptestfunction:latest-${{ steps.define_env.outputs.github-sha-short }}
+          tags: sopor10/mycontainers:latest-${{ steps.define_env.outputs.github-sha-short }}
 
       - 
         name: Deploy the function
