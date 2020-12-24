@@ -25,12 +25,7 @@ jobs:
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: build -f csharptestfunction.yml --shrinkwrap
-      -
-        name: Login to OpenFaaS Gateway
-        uses: docker://openfaas/faas-cli:latest-root
-        with:
-          args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
-                      -g ${{ secrets.OPENFAAS_GATEWAY }}
+
       -
         name: Login to DockerHub
         if: success()
@@ -49,6 +44,12 @@ jobs:
           file: ./build/csharptestfunction/Dockerfile
           push: true
           tags: sopor10/mycontainers:csharptestfunction-latest-${{ steps.define_env.outputs.github-sha-short }}
+      -
+        name: Login to OpenFaaS Gateway
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
+                      -g ${{ secrets.OPENFAAS_GATEWAY }}
       - 
         name: Deploy the function
         uses: docker://openfaas/faas-cli:latest-root
