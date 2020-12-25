@@ -60,7 +60,7 @@ namespace Function
 			{
                 return i;
 			}
-            return Convert.ToInt32(Encoding.ASCII.GetBytes(c.ToString()).Single());
+            return Convert.ToInt32(Encoding.ASCII.GetBytes(c.ToString()).Single())-87;
         }
 
 		public Siteswap()
