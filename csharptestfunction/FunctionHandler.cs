@@ -30,8 +30,10 @@ namespace Function
 			if (TryCreate(input,out int[] array))
 			{
                 siteswap = new Siteswap(array);
-                return array.Select((i,x)=> (x+i)%array.Count()).Distinct().Count() == array.Count();
+                var sequence = Enumerable.Range(0, array.Count());
+                return Enumerable.SequenceEqual(array.Select((i,x)=> (x+i)%array.Count()).OrderBy(x => x), sequence);
 			}
+            
             siteswap = null;
             return false;
         }
