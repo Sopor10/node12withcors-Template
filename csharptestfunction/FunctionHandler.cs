@@ -30,7 +30,7 @@ namespace Function
 			if (TryCreate(input,out int[] array))
 			{
                 siteswap = new Siteswap(array);
-                return array.Select((i,x)=> x+i).Distinct().Count() == array.Count();
+                return array.Select((i,x)=> (x+i)%array.Count()).Distinct().Count() == array.Count();
 			}
             siteswap = null;
             return false;
