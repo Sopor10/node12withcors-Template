@@ -19,7 +19,7 @@ jobs:
         run: |
           curl -sSL https://cli.openfaas.com | sudo sh 
           faas login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
-          echo | faas invoke nodeinfo
+          echo | faas invoke nodeinfo -g ${{ secrets.OPENFAAS_GATEWAY }}
       -
         name: Login to OpenFaaS Gateway
         uses: docker://openfaas/faas-cli:latest-root
