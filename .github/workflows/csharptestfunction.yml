@@ -18,6 +18,8 @@ jobs:
       - name: Openfaas Test
         run: |
           curl -sSL https://cli.openfaas.com | sh 
+          cp faas-cli /usr/local/bin/faas-cli
+          ln -sf /usr/local/bin/faas-cli /usr/local/bin/faas
           faas login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
           echo | faas invoke nodeinfo
       -
