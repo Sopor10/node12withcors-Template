@@ -16,9 +16,10 @@ jobs:
         id: define_env
         run:  echo "::set-output name=github-sha-short::$(echo $GITHUB_SHA | cut -c 1-7)"
       - name: Openfaas Test
-        run: curl -sSL https://cli.openfaas.com | sh
-        run: faas login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
-        run: echo | faas invoke nodeinfo
+        run: |
+          curl -sSL https://cli.openfaas.com | sh 
+          faas login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
+          echo | faas invoke nodeinfo
       -
         name: Login to OpenFaaS Gateway
         uses: docker://openfaas/faas-cli:latest-root
