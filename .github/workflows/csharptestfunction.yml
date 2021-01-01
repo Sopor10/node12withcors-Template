@@ -1,5 +1,6 @@
 name: CI/CD
-
+env: 
+  - FUNCTION : 'csharptestfunction'
 on:
   push:
     branches: 
@@ -21,11 +22,6 @@ jobs:
         with:
           args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
                       -g ${{ secrets.OPENFAAS_GATEWAY }}
-      -
-        name: Test Openfaas connection
-        uses: docker://openfaas/faas-cli:latest-root
-        with:
-          args: invoke nodeinfo -g ${{ secrets.OPENFAAS_GATEWAY }}                          
       -
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
