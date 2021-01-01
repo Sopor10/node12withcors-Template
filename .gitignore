@@ -1,2 +1,7 @@
 template
 build
+
+template
+build
+**/bin
+**/obj
