@@ -6,5 +6,5 @@ functions:
   multiply:
     lang: csharp
     handler: ./multiply
-    image: multiply:latest
+    image: sopor10/multiply:latest
 
