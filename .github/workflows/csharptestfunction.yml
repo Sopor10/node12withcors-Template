@@ -5,7 +5,7 @@ on:
     branches: 
       - main
 env: 
-  - FUNCTION : 'csharptestfunction'      
+  FUNCTION : 'csharptestfunction'      
 jobs:
   func-build:
     runs-on: ubuntu-latest
