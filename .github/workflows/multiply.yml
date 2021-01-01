@@ -2,11 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches:
-      - main 
-      paths:
-        - multiply.yml
-        - multiply/**
+    paths:
+      - multiply.yml
+      - multiply/**
 jobs:
   func-build:
     runs-on: ubuntu-latest
