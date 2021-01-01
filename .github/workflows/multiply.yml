@@ -8,7 +8,7 @@ on:
 env: 
   FUNCTION : 'multiply'      
 jobs:
-  func-build:
+  multiply-build:
     runs-on: ubuntu-latest
     steps:
       - 
