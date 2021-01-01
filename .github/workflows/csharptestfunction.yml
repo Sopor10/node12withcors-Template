@@ -2,8 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: 
-      - main
+    paths: 
+      - 'csharptestfunction.yml'
+      - 'csharptestfunction/**'
 env: 
   FUNCTION : 'csharptestfunction'      
 jobs:
