@@ -16,12 +16,6 @@ jobs:
         id: define_env
         run:  echo "::set-output name=github-sha-short::$(echo $GITHUB_SHA | cut -c 1-7)"
       -
-        name: Login to OpenFaaS Gateway
-        uses: docker://openfaas/faas-cli:latest-root
-        with:
-          args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
-                      -g ${{ secrets.OPENFAAS_GATEWAY }}
-      -
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
         with:
@@ -50,7 +44,12 @@ jobs:
           file: ./build/csharptestfunction/Dockerfile
           push: true
           tags: sopor10/csharptestfunction:latest-${{ steps.define_env.outputs.github-sha-short }}
-
+      -
+        name: Login to OpenFaaS Gateway
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
+                      -g ${{ secrets.OPENFAAS_GATEWAY }}
       - 
         name: Deploy the function
         uses: docker://openfaas/faas-cli:latest-root
