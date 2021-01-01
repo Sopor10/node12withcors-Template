@@ -15,6 +15,10 @@ jobs:
         name: Define ENV VARS
         id: define_env
         run:  echo "::set-output name=github-sha-short::$(echo $GITHUB_SHA | cut -c 1-7)"
+      - name: Openfaas Test
+        run: curl -sSL https://cli.openfaas.com | sh
+        run: faas login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} -g ${{ secrets.OPENFAAS_GATEWAY }}
+        run: echo | faas invoke nodeinfo
       -
         name: Login to OpenFaaS Gateway
         uses: docker://openfaas/faas-cli:latest-root
@@ -22,7 +26,7 @@ jobs:
           args: login -p ${{ secrets.OPENFAAS_GATEWAY_PASSWD }} \
                       -g ${{ secrets.OPENFAAS_GATEWAY }}
       -
-        name: Invoke NodeInfo
+        name: Test Openfaas connection
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: invoke nodeinfo                             
