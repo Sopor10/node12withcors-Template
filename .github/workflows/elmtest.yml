@@ -30,12 +30,15 @@ jobs:
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: template pull https://github.com/Sopor10/Openfaas-Elm-Template.git#main
-
+      -
+        name: Folder Structure
+        id: look
+        run:  tree
       - 
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: build -f ${{ env.FUNCTION }}.yml 
+          args: build -f ${{ env.FUNCTION }}.yml --shrinkwrap
 
       -
         name: Login to DockerHub
