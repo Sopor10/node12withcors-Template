@@ -4,6 +4,7 @@ on:
   push:
     paths: 
       - 'elmtest.yml'
+      - '.github/workflows/elmtest.yml'
       - 'elmtest/**'
 env: 
   FUNCTION : 'elmtest'      
@@ -29,6 +30,12 @@ jobs:
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: template pull https://github.com/Sopor10/Openfaas-Elm-Template.git#main
+
+      - 
+        name: Run shrinkwrap build
+        uses: docker://openfaas/faas-cli:latest-root
+        with:
+          args: build -f ${{ env.FUNCTION }}.yml 
 
       -
         name: Login to DockerHub
