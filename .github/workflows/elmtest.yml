@@ -30,14 +30,6 @@ jobs:
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: template pull https://github.com/Sopor10/Openfaas-Elm-Template.git#main
-      -
-        name: Folder Structure
-        id: look
-        run: ls -a
-      -
-        name: Folder Structure
-        id: lookat
-        run: ls template -a
       - 
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
