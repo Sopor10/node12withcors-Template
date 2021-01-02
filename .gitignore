@@ -5,3 +5,5 @@ template
 build
 **/bin
 **/obj
+**/elm-stuff
+**/elm-main.js
