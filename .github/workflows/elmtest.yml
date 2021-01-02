@@ -36,7 +36,7 @@ jobs:
         run: ls -a
       -
         name: Folder Structure
-        id: look at
+        id: lookat
         run: ls template -a
       - 
         name: Run shrinkwrap build
