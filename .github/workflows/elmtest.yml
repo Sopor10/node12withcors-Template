@@ -34,12 +34,15 @@ jobs:
         name: Folder Structure
         id: look
         run: ls -a
+      -
+        name: Folder Structure
+        id: look at
+        run: ls template -a
       - 
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
         with:
           args: build -f ${{ env.FUNCTION }}.yml --shrinkwrap
-
       -
         name: Login to DockerHub
         if: success()
