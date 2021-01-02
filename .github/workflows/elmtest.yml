@@ -34,7 +34,7 @@ jobs:
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: build -f ${{ env.FUNCTION }}.yml --shrinkwrap
+          args: build -f ${{ env.FUNCTION }}.yml 
 
       -
         name: Login to DockerHub

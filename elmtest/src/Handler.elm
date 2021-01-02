@@ -14,7 +14,7 @@ type alias Output =
 
 handle : Input -> Result {errorMessage:String,errorCode:Int} Output
 handle input =
-    Ok (input * 3)
+    Ok (input * 3) 
 
 
 decoder : D.Decoder Input
