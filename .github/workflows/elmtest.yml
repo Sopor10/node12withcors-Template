@@ -33,7 +33,7 @@ jobs:
       -
         name: Folder Structure
         id: look
-        run:  tree
+        run: ls -a
       - 
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
