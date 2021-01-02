@@ -28,7 +28,7 @@ jobs:
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: template pull https://github.com/Sopor10/Openfaas-Elm-Template.git
+          args: template pull https://github.com/Sopor10/Openfaas-Elm-Template.git#main
 
       - 
         name: Run shrinkwrap build
