@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace Function
 {
+
     public class FunctionHandler
     {
         public async Task<(int, string)> Handle(HttpRequest request)
