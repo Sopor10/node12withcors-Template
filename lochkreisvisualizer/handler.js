@@ -6,6 +6,12 @@ module.exports = async (event, context) => {
   let base64data = buff.toString('base64');
   const result = "data:image/svg+xml;base64," + base64data;
   return context
+    .headers(
+      {
+        'Content-type': 'text/plain',
+        "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+      }
+    )
     .status(200)
     .succeed(result)
 } 
