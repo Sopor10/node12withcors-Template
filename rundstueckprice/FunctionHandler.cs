@@ -170,9 +170,15 @@ namespace Function
         {
             var reader = new StreamReader(request.Body);
             var input = await reader.ReadToEndAsync();
-            Root obj = JsonConvert.DeserializeObject<Root>(input); 
+            var obj = SerializeObject(input); 
 
             return (200, $"{obj.LkAnzahl.Value *100}");
+        }
+
+        private static Root SerializeObject(string input)
+        {
+	        var obj = JsonConvert.DeserializeObject<Root>(input);
+	        return obj;
         }
     }
 }

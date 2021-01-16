@@ -1,0 +1,56 @@
+{
+  "o_dimension01": {
+    "value": null,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  },
+  "o_dimension02": {
+    "value": null,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  },
+  "lk_radius": {
+    "value": null,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  },
+  "lk_lochradius": {
+    "value": null,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  },
+  "lk_winkel": {
+    "value": null,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  },
+  "lk_anzahl": {
+    "value": 0.01,
+    "surcharge": 0,
+    "surcharge1": 0,
+    "surcharge2": 0,
+    "value1": 0,
+    "value2": 0,
+    "count": ""
+  }
+}
