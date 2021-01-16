@@ -8,4 +8,4 @@ build
 **/elm-stuff
 **/elm-main.js
 faas-cli.exe
-test.js
+test.*
