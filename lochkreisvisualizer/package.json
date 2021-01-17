@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "elmProgram": "file:./main.js",
-    "waituntil": "file:./waitUntil.js",
+    "wait": "file:./waitUntil.js",
     "fs-extra": "^9.0.1",
     "jsdom": "^16.4.0"
   }
