@@ -59,16 +59,14 @@ async function generateHtml(data) {
   `, {
     runScripts: "dangerously"
   });
-  const result = await Wait.waitUntil(() => {
+  return Wait.waitUntil(() => {
     if (window.document.getElementById('SvgImage') !== undefined) {
       console.log(window.document.getElementById('SvgImage').innerHTML);
       return window.document.getElementById('SvgImage').innerHTML;
     }
-    return null;
+    return "No Picture generated";
 
   }, 600);
-
-  return result;
 }
 
 
