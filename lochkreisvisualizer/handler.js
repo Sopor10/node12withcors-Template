@@ -17,9 +17,10 @@ module.exports = async (event, context) => {
 } 
 
 async function generateHtml(data) {
-  const Fs = require("fs-extra")
   var jsdom = require("jsdom");
-  const elmJs = Fs.readFileSync("elm.js").toString()
+  const Fs = require("fs-extra");
+  const Wait = require("/home/app/function/waitUntil.js");
+  const elmJs = Fs.readFileSync("/home/app/function/elm.js").toString()
   const { JSDOM } = jsdom;
   const { window } = new JSDOM(`
       <html>
@@ -42,19 +43,15 @@ async function generateHtml(data) {
   `, {
       runScripts: "dangerously"
   });
-   const result = await waitUntil(() => {
-      if (window.document.getElementById('SvgImage')!== undefined) {
-          return window.document.getElementById('SvgImage').innerHTML;
-      }
-      return null;
+  const result = await Wait.waitUntil(() => {
+    if (window.document.getElementById('SvgImage')!== undefined) {
+      return window.document.getElementById('SvgImage').innerHTML;
+    }
+    return null;
 
-    }, 600);
-
-
-  
+  }, 600);
 
   return result;
-
 }
 
 

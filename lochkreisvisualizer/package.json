@@ -10,8 +10,6 @@
   "author": "OpenFaaS Ltd",
   "license": "MIT",
   "dependencies": {
-    "elmProgram": "file:./main.js",
-    "wait": "file:./waitUntil.js",
     "fs-extra": "^9.0.1",
     "jsdom": "^16.4.0"
   }
