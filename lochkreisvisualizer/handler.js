@@ -28,7 +28,7 @@ module.exports = async (event, context) => {
         }
       )
       .status(200)
-      .succeed(error)
+      .succeed(error + "es ist ein Fehler aufgetreten")
   }
 }
 
