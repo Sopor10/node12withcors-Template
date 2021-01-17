@@ -5239,7 +5239,7 @@ var $author$project$Main$createCircleForm = function (i) {
 			])
 	};
 };
-var $elm$json$Json$Decode$decodeString = _Json_runOnString;
+var $elm$json$Json$Decode$decodeValue = _Json_run;
 var $author$project$CircleForm$initCircleForm = {
 	b0: $elm$core$Maybe$Just(200),
 	cb: $elm$core$Maybe$Nothing,
@@ -5303,7 +5303,7 @@ var $author$project$Main$inputModelDecoder = A3(
 						$elm$json$Json$Decode$float,
 						$elm$json$Json$Decode$succeed($author$project$Main$InputModel)))))));
 var $author$project$Main$initExternal = function (i) {
-	var _v0 = A2($elm$json$Json$Decode$decodeString, $author$project$Main$inputModelDecoder, i);
+	var _v0 = A2($elm$json$Json$Decode$decodeValue, $author$project$Main$inputModelDecoder, i);
 	if (!_v0.$) {
 		var value = _v0.a;
 		return $author$project$Main$initialModel(
@@ -5314,11 +5314,11 @@ var $author$project$Main$initExternal = function (i) {
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $elm$json$Json$Decode$string = _Json_decodeString;
 var $author$project$Main$update = F2(
 	function (msg, model) {
 		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 	});
+var $elm$json$Json$Decode$value = _Json_decodeValue;
 var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
 	return {$: 6, a: a};
 };
@@ -13632,4 +13632,4 @@ var $author$project$Main$main = $elm$browser$Browser$element(
 		gM: $author$project$Main$update,
 		gO: $author$project$Main$view
 	});
-_Platform_export({'Main':{'init':$author$project$Main$main($elm$json$Json$Decode$string)(0)}});}(this));
+_Platform_export({'Main':{'init':$author$project$Main$main($elm$json$Json$Decode$value)(0)}});}(this));

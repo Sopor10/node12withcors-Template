@@ -4,7 +4,8 @@ module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
   let buff = new Buffer(event.body, 'base64');
-  let text = buff.toString('ascii');
+  let text = buff.toString('utf-8');
+  console.log("der Text für elm ist vom Typ: "+typeof text);
   
   console.log('"' + event.body + '" converted from Base64 to ASCII is "' + text + '"');
 
