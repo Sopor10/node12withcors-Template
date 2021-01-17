@@ -3,9 +3,15 @@
 module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
+  let buff = new Buffer(event.body, 'base64');
+  let text = buff.toString('ascii');
+  
+  console.log('"' + event.body + '" converted from Base64 to ASCII is "' + text + '"');
+
+
   try {
 
-    const svg = await generateHtml(event.body);
+    const svg = await generateHtml(text);
     const result = "data:image/svg+xml;charset=UTF-8," + svg;
 
 
