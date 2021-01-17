@@ -3,7 +3,7 @@
 module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
-  const svg = await generateHtml(event.body);
+  const svg = await generateHtml(JSON.stringify(event.body));
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
   
@@ -15,7 +15,7 @@ module.exports = async (event, context) => {
       }
     )
     .status(200)
-    .succeed(result)
+    .succeed(typeof event.body + result)
 } 
 
 async function generateHtml(data) {
@@ -37,7 +37,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${JSON.stringify(data)}
+                  flags: ${data}
               });
               </script>
           </body>
