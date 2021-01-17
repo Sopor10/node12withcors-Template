@@ -12,6 +12,7 @@
   "dependencies": {
     "async-wait-until": "^1.2.6",
     "fs-extra": "^9.0.1",
-    "jsdom": "^16.4.0"
+    "jsdom": "^16.4.0",
+    "elmProgram":"file:./main.js"
   }
 }
