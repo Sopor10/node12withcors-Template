@@ -3,21 +3,9 @@
 module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
-  if(event.body.input === undefined){
-    return context
-    .headers(
-      {
-        'Content-type': 'text/plain',
-        "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
-      }
-    )
-    .status(400)
-    .succeed("kein Feld input vorhanden.")
-  }
-  var source = ""
   try {
 
-    const svg = await generateHtml(source);
+    const svg = await generateHtml(event.body);
     const result = "data:image/svg+xml;charset=UTF-8," + svg;
 
 
@@ -62,7 +50,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${data}
+                  flags: ${JSON.parse(data)}
               });
               </script>
           </body>
