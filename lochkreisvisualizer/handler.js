@@ -1,7 +1,8 @@
 'use strict'
 
 module.exports = async (event, context) => {
-  const svg = await generateHtml(event);
+  console.log(event.body);
+  const svg = await generateHtml(event.body);
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
   
@@ -35,7 +36,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${JSON.stringify(data)}
+                  flags: ${data}
               });
               </script>
           </body>
@@ -45,6 +46,7 @@ async function generateHtml(data) {
   });
   const result = await Wait.waitUntil(() => {
     if (window.document.getElementById('SvgImage')!== undefined) {
+      console.log(window.document.getElementById('SvgImage').innerHTML);
       return window.document.getElementById('SvgImage').innerHTML;
     }
     return null;

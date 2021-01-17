@@ -12946,8 +12946,8 @@ var $author$project$Shape$createSvg = F2(
 			_List_fromArray(
 				[
 					box,
-					$elm$svg$Svg$Attributes$width('520'),
-					$elm$svg$Svg$Attributes$height('520')
+					$elm$svg$Svg$Attributes$width('400'),
+					$elm$svg$Svg$Attributes$height('400')
 				]),
 			A2(
 				$elm$core$List$map,
