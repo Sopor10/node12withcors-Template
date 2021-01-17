@@ -3,4 +3,3 @@ obj/
 .nuget/
 .dotnet/
 .templateengine/
-**/node_modules

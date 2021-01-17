@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = async (event, context) => {
-  const svg = generateHtml(event);
+  const svg = await generateHtml(event);
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
   
