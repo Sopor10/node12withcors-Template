@@ -4,26 +4,39 @@ module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
   var source = ""
-  if(typeof typeof event.body === "string"){
+  if (typeof typeof event.body === "string") {
     source = event.body;
   }
-  else{
+  else {
     source = JSON.stringify(event.body);
   }
-  const svg = await generateHtml(source);
-  const result = "data:image/svg+xml;charset=UTF-8," + svg;
-  
-  
-  return context
-    .headers(
-      {
-        'Content-type': 'text/plain',
-        "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
-      }
-    )
-    .status(200)
-    .succeed(typeof event.body + result)
-} 
+  try {
+
+    const svg = await generateHtml(source);
+    const result = "data:image/svg+xml;charset=UTF-8," + svg;
+
+
+    return context
+      .headers(
+        {
+          'Content-type': 'text/plain',
+          "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+        }
+      )
+      .status(200)
+      .succeed(result)
+  } catch (error) {
+    return context
+      .headers(
+        {
+          'Content-type': 'text/plain',
+          "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+        }
+      )
+      .status(200)
+      .succeed(error)
+  }
+}
 
 async function generateHtml(data) {
   var jsdom = require("jsdom");
@@ -50,10 +63,10 @@ async function generateHtml(data) {
           </body>
       </html>
   `, {
-      runScripts: "dangerously"
+    runScripts: "dangerously"
   });
   const result = await Wait.waitUntil(() => {
-    if (window.document.getElementById('SvgImage')!== undefined) {
+    if (window.document.getElementById('SvgImage') !== undefined) {
       console.log(window.document.getElementById('SvgImage').innerHTML);
       return window.document.getElementById('SvgImage').innerHTML;
     }
