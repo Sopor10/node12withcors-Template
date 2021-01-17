@@ -50,7 +50,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${JSON.parse(data)}
+                  flags: ${JSON.stringify(data)}
               });
               </script>
           </body>
