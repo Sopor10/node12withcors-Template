@@ -29,8 +29,8 @@ module.exports = async (event, context) => {
       .headers(
         {
           'Content-type': 'text/plain',
-          "Access-Control-Allow-Origin": "*"
-          //"Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+          // "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
         }
       )
       .status(200)
@@ -57,7 +57,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${JSON.stringify(data)}
+                  flags: ${data}
               });
               </script>
           </body>
