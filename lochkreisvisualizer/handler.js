@@ -1,9 +1,7 @@
 'use strict'
 
 module.exports = async (event, context) => {
-  const svg = '<svg viewBox="-105 -105 210 210" width="400" height="400"><circle cx="0" cy="0" r="100" fill="none" stroke="black" stroke-width="1"></circle><circle cx="0" cy="0" r="25" fill="none" stroke="orange" stroke-width="1"></circle><circle cx="0" cy="0" r="75" fill="none" stroke="green" stroke-width="1" stroke-dasharray="5,5"></circle><circle cx="75" cy="-1.8369701987210297e-14" r="10" fill="none" stroke="blue" stroke-width="1"></circle></svg>';
-  let buff = new Buffer(svg);
-  let base64data = buff.toString('base64');
+  const svg = generateHtml(event);
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
   
@@ -17,4 +15,47 @@ module.exports = async (event, context) => {
     .status(200)
     .succeed(result)
 } 
+
+async function generateHtml(data) {
+  const waitUntil = require('async-wait-until');
+  const Fs = require("fs-extra")
+  var jsdom = require("jsdom");
+  const elmJs = Fs.readFileSync("main.js").toString()
+  const { JSDOM } = jsdom;
+  const { window } = new JSDOM(`
+      <html>
+          <head>
+              <meta charset="UTF-8">
+              <title>Main</title>
+          </head>
+
+          <body>
+              <div id="myapp"></div>
+              <script>
+                  ${elmJs};
+                  var app = Elm.Main.init({
+                  node: document.getElementById('myapp'),
+                  flags: ${JSON.stringify(data)}
+              });
+              </script>
+          </body>
+      </html>
+  `, {
+      runScripts: "dangerously"
+  });
+   const result = await waitUntil(() => {
+      if (window.document.getElementById('SvgImage')!== undefined) {
+          return window.document.getElementById('SvgImage').innerHTML;
+      }
+      return null;
+
+    }, 600);
+
+
+  
+
+  return result;
+
+}
+
 
