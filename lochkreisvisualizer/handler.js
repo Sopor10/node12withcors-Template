@@ -23,7 +23,8 @@ module.exports = async (event, context) => {
       .headers(
         {
           'Content-type': 'text/plain',
-          "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+          "Access-Control-Allow-Origin": "*"
+          //"Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
         }
       )
       .status(200)
