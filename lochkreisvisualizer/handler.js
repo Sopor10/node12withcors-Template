@@ -2,6 +2,7 @@
 
 module.exports = async (event, context) => {
   console.log(event.body);
+  console.log(typeof event.body);
   const svg = await generateHtml(event.body);
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
@@ -36,7 +37,7 @@ async function generateHtml(data) {
                   ${elmJs};
                   var app = Elm.Main.init({
                   node: document.getElementById('myapp'),
-                  flags: ${data}
+                  flags: ${JSON.stringify(data)}
               });
               </script>
           </body>
