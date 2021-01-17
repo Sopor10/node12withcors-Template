@@ -3,7 +3,7 @@
 module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
-  const svg = await generateHtml(JSON.stringify(event.body));
+  const svg = await generateHtml(JSON.stringify(event.body.input));
   const result = "data:image/svg+xml;charset=UTF-8," + svg;
   
   
