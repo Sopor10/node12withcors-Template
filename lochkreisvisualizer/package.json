@@ -10,9 +10,9 @@
   "author": "OpenFaaS Ltd",
   "license": "MIT",
   "dependencies": {
-    "async-wait-until": "^1.2.6",
+    "elmProgram": "file:./main.js",
+    "waituntil": "file:./waitUntil.js",
     "fs-extra": "^9.0.1",
-    "jsdom": "^16.4.0",
-    "elmProgram":"file:./main.js"
+    "jsdom": "^16.4.0"
   }
 }

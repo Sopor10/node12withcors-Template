@@ -20,7 +20,7 @@ async function generateHtml(data) {
   const waitUntil = require('async-wait-until');
   const Fs = require("fs-extra")
   var jsdom = require("jsdom");
-  const elmJs = Fs.readFileSync("main.js").toString()
+  const elmJs = Fs.readFileSync("elm.js").toString()
   const { JSDOM } = jsdom;
   const { window } = new JSDOM(`
       <html>
