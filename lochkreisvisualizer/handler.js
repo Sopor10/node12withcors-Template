@@ -4,7 +4,7 @@ module.exports = async (event, context) => {
   console.log(event.body);
   console.log(typeof event.body);
   var source = ""
-  if(typeof typeof event.body === string){
+  if(typeof typeof event.body === "string"){
     source = event.body;
   }
   else{
