@@ -17,7 +17,6 @@ module.exports = async (event, context) => {
 } 
 
 async function generateHtml(data) {
-  const waitUntil = require('async-wait-until');
   const Fs = require("fs-extra")
   var jsdom = require("jsdom");
   const elmJs = Fs.readFileSync("elm.js").toString()
