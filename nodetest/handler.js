@@ -12,6 +12,6 @@ module.exports = async (event, context) => {
       "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
     })
     .status(200)
-    .succeed(result)
+    .succeed(result) 
 }
 
