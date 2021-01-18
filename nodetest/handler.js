@@ -6,6 +6,11 @@ module.exports = async (event, context) => {
   }
 
   return context
+  .headers(
+    {
+      'Content-type': 'text/plain',
+      "Access-Control-Allow-Origin": "http://konfigurator.lars-lehmann.info"
+    })
     .status(200)
     .succeed(result)
 }
